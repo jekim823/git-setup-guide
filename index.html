@@ -58,9 +58,16 @@
  
   /* 헤더 */
   .header {
-    margin-bottom: 56px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 40px;
+  }
+ 
+  .header-eyebrow {
+    font-size: 18px;
+    color: var(--text);
+    margin-top: 18px;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+    font-weight: 700;
   }
  
   .header-tag {
@@ -85,10 +92,125 @@
     line-height: 1.25;
   }
  
+  h1 .highlight-text {
+    background: linear-gradient(
+      transparent 0%,
+      transparent 65%,
+      rgba(122, 162, 255, 0.35) 65%,
+      rgba(122, 162, 255, 0.35) 95%,
+      transparent 95%
+    );
+    padding: 0 4px;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    animation: highlightSlide 1.2s ease-out 0.3s forwards;
+  }
+ 
+  @keyframes highlightSlide {
+    to { background-size: 100% 100%; }
+  }
+ 
   .header-sub {
     font-size: 15px;
     color: var(--text-soft);
     line-height: 1.6;
+  }
+ 
+  .contact-line {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+ 
+  .contact-line a {
+    color: var(--text-soft);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(155, 163, 194, 0.4);
+    transition: all 0.2s;
+  }
+ 
+  .contact-line a:hover {
+    border-bottom-color: rgba(155, 163, 194, 0.8);
+  }
+ 
+  /* CLI 설명 박스 */
+  .cli-explainer {
+    background: var(--panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+  }
+ 
+  .cli-explainer-head {
+    margin-bottom: 10px;
+  }
+ 
+  .cli-explainer-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    background: rgba(122, 162, 255, 0.1);
+    border: 1px solid rgba(122, 162, 255, 0.25);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+  }
+ 
+  .cli-explainer-text {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+ 
+  .cli-explainer-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+ 
+  .cli-explainer-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+ 
+  .cli-example {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    padding: 3px 0;
+    flex-wrap: wrap;
+  }
+ 
+  .cli-example-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+ 
+  .cli-example code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: #fbbf24;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    border: 1px solid var(--border-soft);
+  }
+ 
+  .cli-example-desc {
+    color: var(--text-soft);
+    font-size: 13px;
   }
  
   /* 진행 인디케이터 */
@@ -722,9 +844,45 @@
   <!-- 헤더 -->
   <header class="header">
     <span class="header-tag">테크대학 여름 계절학기 · SETUP GUIDE</span>
-    <h1>git 설치부터 CLI 실습까지</h1>
+    <p class="header-eyebrow">CLI 실습을 위한</p>
+    <h1><span class="highlight-text">git 설치부터 저장소 만들기까지</span></h1>
     <p class="header-sub">처음 하는 분도 따라할 수 있도록 단계별로 정리했어요.<br>본인이 사용하는 OS를 선택하고 따라하세요.</p>
+    <p class="contact-line">💬 문의: 테크대학 여름 계절학기 전용 채널 | <a href="https://deliveryhero.enterprise.slack.com/archives/C0B034CF62W" target="_blank">#wit-ss-2026</a></p>
   </header>
+ 
+  <!-- CLI 설명 박스 -->
+  <div class="cli-explainer">
+    <div class="cli-explainer-head">
+      <span class="cli-explainer-tag">CLI란?</span>
+    </div>
+    <p class="cli-explainer-text"><strong>CLI(Command Line Interface)</strong>는 마우스 클릭 대신 <strong>키보드로 명령어를 입력</strong>해서 컴퓨터를 조작하는 방식이에요.<br>우리가 매일 쓰는 폴더, 파일, 프로그램 실행 같은 작업을 텍스트 명령어로 처리해요. 개발자들이 더 빠르고 정확하게 작업하기 위해 사용하는 도구예요.</p>
+    <div class="cli-explainer-examples">
+      <div class="cli-example">
+        <span class="cli-example-label">예시</span>
+        <code>mkdir folder</code>
+        <span class="cli-example-desc">→ "folder" 폴더 만들기</span>
+      </div>
+      <div class="cli-example">
+        <span class="cli-example-label">예시</span>
+        <code>cd folder</code>
+        <span class="cli-example-desc">→ "folder"로 이동</span>
+      </div>
+      <div class="cli-example">
+        <span class="cli-example-label">예시</span>
+        <code>git init</code>
+        <span class="cli-example-desc">→ git 저장소 시작</span>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- git 설명 박스 -->
+  <div class="cli-explainer">
+    <div class="cli-explainer-head">
+      <span class="cli-explainer-tag">git이란?</span>
+    </div>
+    <p class="cli-explainer-text"><strong>git</strong>은 <strong>코드의 변경 이력을 기록·관리</strong>하는 도구예요. "언제, 누가, 무엇을 바꿨는지" 모두 추적할 수 있어서, 실수해도 이전 상태로 되돌릴 수 있어요.<br>여러 명이 협업할 때도 각자의 작업을 한 곳에 합칠 수 있게 도와줘요. 개발자들이 가장 많이 쓰는 협업 도구예요.</p>
+    <p class="cli-explainer-text" style="margin-bottom: 0;">이 가이드에서 <strong>"git 설치"</strong>는 이 도구를 컴퓨터에 깔아두는 작업이에요. 한 번만 설치하면 계속 쓸 수 있어요.</p>
+  </div>
  
   <!-- OS 선택 탭 -->
   <div class="os-tabs">
@@ -991,11 +1149,6 @@
         <strong>비밀번호 입력 시 화면에 점(●)이나 별표(*)도 안 보이지만 정상이에요.</strong> 그냥 입력하고 Enter 누르세요.</span>
       </div>
  
-      <div class="tip warn">
-        <span class="tip-icon">⚠️</span>
-        <span>그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
-      </div>
- 
     </div>
   </section>
  
@@ -1126,8 +1279,7 @@
       <span class="tip-icon">⚠️</span>
       <span><strong>Windows 사용자 주의사항</strong><br>
       Claude CLI 설치 후 <strong>IDE에 내장된 PowerShell</strong>(VS Code, IntelliJ 등)에서 <code>claude</code> 명령어가 인식되지 않는 경우가 있어요.<br>
-      → <strong>반드시 별도의 PowerShell 창</strong>(Windows 시작 메뉴에서 직접 연 PowerShell)에서 실습을 진행하세요.<br>
-      그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
+      → <strong>반드시 별도의 PowerShell 창</strong>(Windows 시작 메뉴에서 직접 연 PowerShell)에서 실습을 진행하세요.</span>
     </div>
  
     <!-- WIN STEP 1: PowerShell 열기 -->
@@ -1452,11 +1604,6 @@
             <div class="inline-step-num">4</div>
             <div class="inline-step-text">새로 열린 PowerShell 창에서 다시 설치 명령어 실행</div>
           </div>
-        </div>
- 
-        <div class="tip warn">
-          <span class="tip-icon">⚠️</span>
-          <span>그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
         </div>
  
       </div>
