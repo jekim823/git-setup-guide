@@ -604,6 +604,7 @@
   .check-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: rgba(0,0,0,0.2);
     padding: 10px 14px;
@@ -897,11 +898,9 @@
     <a href="#step-1" class="progress-pill">1 git 확인</a>
     <a href="#step-2" class="progress-pill">2 git 설치</a>
     <a href="#step-3" class="progress-pill">3 이름·이메일</a>
-    <a href="#step-4" class="progress-pill">4 npm 확인</a>
-    <a href="#step-5" class="progress-pill">5 Node.js 설치</a>
-    <a href="#step-6" class="progress-pill">6 Claude Code</a>
-    <a href="#step-7" class="progress-pill">7 인증</a>
-    <a href="#step-8" class="progress-pill">8 저장소 만들기</a>
+    <a href="#step-4" class="progress-pill">4 Claude Code 설치</a>
+    <a href="#step-5" class="progress-pill">5 인증</a>
+    <a href="#step-6" class="progress-pill">6 저장소 만들기</a>
   </div>
  
   <!-- STEP 1 -->
@@ -1017,136 +1016,38 @@
   <section class="step" id="step-4">
     <div class="step-head">
       <div class="step-num">4</div>
-      <h2 class="step-title">npm 확인 (Claude Code 설치 전)</h2>
-    </div>
-    <p class="step-desc">Claude Code를 설치하려면 npm이 필요해요. 먼저 npm이 있는지 확인해요.</p>
-    <div class="step-content">
- 
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-          <div class="line"><span class="prompt">%</span><span class="cmd">npm <span class="opt">--version</span></span></div>
-        </div>
-      </div>
- 
-      <div class="branches">
-        <div class="branch branch-ok">
-          <div class="branch-label">✓ 결과 A</div>
-          <div class="branch-text">버전 숫자가 나오면<br>npm 있음 → <strong>STEP 6으로 이동</strong></div>
-        </div>
-        <div class="branch branch-err">
-          <div class="branch-label">✗ 결과 B</div>
-          <div class="branch-text"><code style="font-family:'JetBrains Mono',monospace;color:var(--red)">command not found</code> 오류 → <strong>STEP 5로 이동</strong></div>
-        </div>
-      </div>
- 
-    </div>
-  </section>
- 
-  <!-- STEP 5 -->
-  <section class="step" id="step-5">
-    <div class="step-head">
-      <div class="step-num optional">5</div>
-      <h2 class="step-title">Node.js 설치</h2>
-      <span class="step-badge">OPTIONAL · npm 없을 때만</span>
-    </div>
-    <p class="step-desc">Node.js를 설치하면 npm도 함께 설치돼요.</p>
-    <div class="step-content">
- 
-      <div class="inline-steps">
-        <div class="inline-step">
-          <div class="inline-step-num">1</div>
-          <div class="inline-step-text"><strong>nodejs.org</strong> 접속 → <strong>LTS 버전</strong> 다운로드 클릭</div>
-        </div>
-        <div class="inline-step">
-          <div class="inline-step-num">2</div>
-          <div class="inline-step-text">다운받은 파일 열어서 설치 (계속 → 계속 → 설치)</div>
-        </div>
-        <div class="inline-step">
-          <div class="inline-step-num">3</div>
-          <div class="inline-step-text">터미널을 <strong>완전히 종료하고 다시 열기</strong> ← 꼭 해야 해요!</div>
-        </div>
-        <div class="inline-step">
-          <div class="inline-step-num">4</div>
-          <div class="inline-step-text">설치 확인 (아래 명령어 실행)</div>
-        </div>
-      </div>
- 
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-          <div class="line"><span class="prompt">%</span><span class="cmd">node <span class="opt">--version</span></span></div>
-          <div class="output">v20.11.1</div>
-          <div class="blank"></div>
-          <div class="line"><span class="prompt">%</span><span class="cmd">npm <span class="opt">--version</span></span></div>
-          <div class="output">10.2.4</div>
-          <div class="output-dim">↑ 둘 다 나오면 성공 🎉</div>
-        </div>
-      </div>
- 
-    </div>
-  </section>
- 
-  <!-- STEP 6 -->
-  <section class="step" id="step-6">
-    <div class="step-head">
-      <div class="step-num">6</div>
       <h2 class="step-title">Claude Code 설치</h2>
     </div>
-    <p class="step-desc">npm이 준비됐으면 Claude Code(Claude의 CLI 도구)를 설치해요.</p>
+    <p class="step-desc">Claude Code(Claude의 CLI 도구)를 설치해요. <strong>Native Installer</strong>를 사용하면 한 줄로 자동 설치돼요.</p>
     <div class="step-content">
- 
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-          <div class="line"><span class="prompt">%</span><span class="cmd">npm install <span class="opt">-g</span> @anthropic-ai/claude-code</span></div>
-          <div class="output-dim">⠋ 설치 중... 잠깐 기다려요</div>
-          <div class="blank"></div>
-          <div class="line"><span class="prompt">%</span><span class="cmd">claude <span class="opt">--version</span></span></div>
-          <div class="output">claude v1.0.x</div>
-          <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
-        </div>
-      </div>
- 
-      <div class="tip">
-        <span class="tip-icon">⚠️</span>
-        <span>설치 중에 경고 메시지가 나와도 <strong>마지막에 버전이 출력되면 정상</strong>이에요.</span>
-      </div>
- 
-      <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">권한 에러가 나는 경우</h3>
- 
-      <p class="step-desc" style="margin-left:0; margin-bottom:12px;">설치 중에 다음과 같은 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--red);font-size:12px;">EACCES</code> 권한 에러가 나는 경우가 있어요:</p>
- 
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error code: 'EACCES',</div>
-          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error syscall: 'mkdir',</div>
-          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error path: '/usr/local/lib/node_modules/@anthropic-ai'</div>
-          <div class="output-dim" style="padding-left:0;">npm error The operation was rejected by your operating system.</div>
-          <div class="output-dim" style="padding-left:0;">npm error It is likely you do not have the permissions to access...</div>
-        </div>
-      </div>
- 
-      <p class="step-desc" style="margin-left:0; margin: 16px 0 12px;">이 에러는 <strong>전역 설치 권한이 없어서</strong> 발생해요. 명령어 앞에 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">sudo</code>를 붙여서 다시 실행하세요:</p>
- 
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-          <div class="line"><span class="prompt">%</span><span class="cmd">sudo npm install <span class="opt">-g</span> @anthropic-ai/claude-code</span></div>
-          <div class="output-dim">↳ 비밀번호를 물어보면 Mac 로그인 비밀번호 입력 (입력해도 화면에 안 보여요, 정상)</div>
-          <div class="blank"></div>
-          <div class="line"><span class="prompt">%</span><span class="cmd">claude <span class="opt">--version</span></span></div>
-          <div class="output">claude v1.0.x</div>
-          <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
-        </div>
-      </div>
  
       <div class="tip">
         <span class="tip-icon">💡</span>
-        <span><strong><code>sudo</code>가 뭔가요?</strong><br>
-        "관리자 권한으로 실행"이라는 뜻이에요. Mac이 시스템 폴더에 뭔가 설치하려면 본인이 진짜 사용자인지 확인하려고 비밀번호를 물어봐요.<br><br>
-        <strong>비밀번호 입력 시 화면에 점(●)이나 별표(*)도 안 보이지만 정상이에요.</strong> 그냥 입력하고 Enter 누르세요.</span>
+        <span><strong>Native Installer가 뭔가요?</strong> Anthropic이 공식 권장하는 설치 방식이에요. Node.js나 npm 같은 별도 도구 없이 바로 설치되고, 백그라운드에서 자동으로 업데이트도 돼요.</span>
+      </div>
+ 
+      <div class="terminal">
+        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
+        <div class="term-body">
+          <div class="line"><span class="prompt">%</span><span class="cmd">curl <span class="opt">-fsSL</span> https://claude.ai/install.sh | bash</span></div>
+          <div class="output-dim">설치 중... 잠깐 기다려요</div>
+        </div>
+      </div>
+ 
+      <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">설치 완료 후 확인:</p>
+ 
+      <div class="terminal">
+        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
+        <div class="term-body">
+          <div class="line"><span class="prompt">%</span><span class="cmd">claude <span class="opt">--version</span></span></div>
+          <div class="output">claude v2.x.x</div>
+          <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
+        </div>
+      </div>
+ 
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <span><code>claude: command not found</code> 오류가 나면 <strong>터미널을 완전히 닫고 다시 열어보세요</strong>. PATH가 갱신돼야 인식돼요.</span>
       </div>
  
       <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">⭐️ 그래도 해결되지 않을 때는</h3>
@@ -1163,10 +1064,10 @@
     </div>
   </section>
  
-  <!-- STEP 7 -->
-  <section class="step" id="step-7">
+    <!-- STEP 5 -->
+  <section class="step" id="step-5">
     <div class="step-head">
-      <div class="step-num">7</div>
+      <div class="step-num">5</div>
       <h2 class="step-title">첫 실행 & 인증</h2>
     </div>
     <p class="step-desc">설치 후 처음 한 번 실행해서 Anthropic 계정 인증을 해야 해요.</p>
@@ -1216,10 +1117,10 @@
     </div>
   </section>
  
-  <!-- STEP 8 -->
-  <section class="step" id="step-8">
+  <!-- STEP 6 -->
+  <section class="step" id="step-6">
     <div class="step-head">
-      <div class="step-num">8</div>
+      <div class="step-num">6</div>
       <h2 class="step-title">저장소 직접 만들기</h2>
     </div>
     <p class="step-desc">미리 만들어진 저장소를 받지 않고 본인 손으로 빈 작업 폴더를 만들어요.<br>각 파일의 역할을 직접 이해하는 게 자산화의 첫걸음이에요.</p>
@@ -1280,10 +1181,9 @@
       <a href="#win-step-2" class="progress-pill">2 git 확인</a>
       <a href="#win-step-3" class="progress-pill">3 git 설치</a>
       <a href="#win-step-4" class="progress-pill">4 이름·이메일</a>
-      <a href="#win-step-5" class="progress-pill">5 Node.js 설치</a>
-      <a href="#win-step-6" class="progress-pill">6 Claude Code</a>
-      <a href="#win-step-7" class="progress-pill">7 인증</a>
-      <a href="#win-step-8" class="progress-pill">8 저장소 만들기</a>
+      <a href="#win-step-5" class="progress-pill">5 Claude Code 설치</a>
+      <a href="#win-step-6" class="progress-pill">6 인증</a>
+      <a href="#win-step-7" class="progress-pill">7 저장소 만들기</a>
     </div>
  
     <div class="tip warn" style="margin-bottom: 32px;">
@@ -1473,99 +1373,19 @@
       </div>
     </section>
  
-    <!-- WIN STEP 5: Node.js 설치 -->
+    <!-- WIN STEP 5: Claude Code 설치 -->
     <section class="step" id="win-step-5">
       <div class="step-head">
         <div class="step-num">5</div>
-        <h2 class="step-title">Node.js 설치</h2>
-      </div>
-      <p class="step-desc">Claude Code를 설치하려면 Node.js가 필요해요. 먼저 있는지 확인:</p>
-      <div class="step-content">
- 
-        <div class="terminal win">
-          <div class="term-bar">
-            <div class="win-tab">
-              <span>Windows PowerShell</span>
-            </div>
-            <div class="win-controls">
-              <div class="win-btn">─</div>
-              <div class="win-btn">□</div>
-              <div class="win-btn close-btn">×</div>
-            </div>
-          </div>
-          <div class="term-body">
-            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">node <span class="opt">--version</span></span></div>
-          </div>
-        </div>
- 
-        <div class="branches">
-          <div class="branch branch-ok">
-            <div class="branch-label">✓ 결과 A</div>
-            <div class="branch-text">버전 숫자가 나오면<br>Node.js 있음 → <strong>STEP 6으로 이동</strong></div>
-          </div>
-          <div class="branch branch-err">
-            <div class="branch-label">✗ 결과 B</div>
-            <div class="branch-text">오류가 나면<br>아래 설치 방법 따라하기</div>
-          </div>
-        </div>
- 
-        <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">Node.js 설치 방법:</p>
- 
-        <div class="inline-steps">
-          <div class="inline-step">
-            <div class="inline-step-num">1</div>
-            <div class="inline-step-text">브라우저에서 <strong>https://nodejs.org</strong> 접속</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">2</div>
-            <div class="inline-step-text"><strong>LTS 버전</strong> 다운로드 클릭 (Windows Installer .msi)</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">3</div>
-            <div class="inline-step-text">다운받은 파일 실행해서 설치 (전부 기본값 Next)</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">4</div>
-            <div class="inline-step-text"><strong>PowerShell 완전히 닫고 다시 열기</strong> ← 필수!</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">5</div>
-            <div class="inline-step-text">설치 확인:</div>
-          </div>
-        </div>
- 
-        <div class="terminal win">
-          <div class="term-bar">
-            <div class="win-tab">
-              <span>Windows PowerShell</span>
-            </div>
-            <div class="win-controls">
-              <div class="win-btn">─</div>
-              <div class="win-btn">□</div>
-              <div class="win-btn close-btn">×</div>
-            </div>
-          </div>
-          <div class="term-body">
-            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">node <span class="opt">--version</span></span></div>
-            <div class="output">v20.11.1</div>
-            <div class="blank"></div>
-            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">npm <span class="opt">--version</span></span></div>
-            <div class="output">10.2.4</div>
-            <div class="output-dim">↑ 둘 다 나오면 성공 🎉</div>
-          </div>
-        </div>
- 
-      </div>
-    </section>
- 
-    <!-- WIN STEP 6: Claude Code 설치 -->
-    <section class="step" id="win-step-6">
-      <div class="step-head">
-        <div class="step-num">6</div>
         <h2 class="step-title">Claude Code 설치</h2>
       </div>
-      <p class="step-desc">Node.js가 준비됐으면 Claude Code(Claude의 CLI 도구)를 설치해요.</p>
+      <p class="step-desc">Claude Code(Claude의 CLI 도구)를 설치해요. <strong>Native Installer</strong>를 사용하면 한 줄로 자동 설치돼요.</p>
       <div class="step-content">
+ 
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span><strong>Native Installer가 뭔가요?</strong> Anthropic이 공식 권장하는 설치 방식이에요. Node.js나 npm 같은 별도 도구 없이 바로 설치되고, 백그라운드에서 자동으로 업데이트도 돼요.</span>
+        </div>
  
         <div class="terminal win">
           <div class="term-bar">
@@ -1579,41 +1399,33 @@
             </div>
           </div>
           <div class="term-body">
-            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">npm install <span class="opt">-g</span> @anthropic-ai/claude-code</span></div>
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">irm https://claude.ai/install.ps1 | iex</span></div>
             <div class="output-dim">설치 중... 잠깐 기다려요</div>
-            <div class="blank"></div>
-            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">claude <span class="opt">--version</span></span></div>
-            <div class="output">claude v1.0.x</div>
-            <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
           </div>
         </div>
  
         <div class="tip warn">
           <span class="tip-icon">⚠️</span>
-          <span><strong>IDE 내장 PowerShell에서 인식 안 될 때</strong><br>
-          VS Code 등 IDE 내장 PowerShell에서 <code>claude</code>가 안 잡히면, <strong>Windows 시작 메뉴에서 별도로 연 PowerShell</strong>에서 실습 진행하세요.</span>
+          <span><code>'irm' is not recognized</code> 오류가 나면 <strong>PowerShell이 아니라 CMD</strong>에 있는 거예요. PowerShell을 열어서 다시 시도하세요. (프롬프트가 <code>PS C:\</code>로 시작해야 PowerShell이에요)</span>
         </div>
  
-        <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">권한 에러가 나는 경우</h3>
+        <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">설치 완료 후 <strong>PowerShell을 완전히 닫고 다시 열어서</strong> 확인:</p>
  
-        <p class="step-desc" style="margin-left:0; margin-bottom:12px;"><code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--red);font-size:12px;">EACCES</code> 또는 권한 관련 에러가 나면 <strong>관리자 권한으로 PowerShell을 다시 열어보세요</strong>:</p>
- 
-        <div class="inline-steps">
-          <div class="inline-step">
-            <div class="inline-step-num">1</div>
-            <div class="inline-step-text">시작 메뉴에서 <strong>PowerShell</strong> 검색</div>
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
           </div>
-          <div class="inline-step">
-            <div class="inline-step-num">2</div>
-            <div class="inline-step-text">결과 화면에서 <strong>"관리자 권한으로 실행"</strong> 클릭</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">3</div>
-            <div class="inline-step-text">UAC 창이 뜨면 <strong>예</strong> 클릭</div>
-          </div>
-          <div class="inline-step">
-            <div class="inline-step-num">4</div>
-            <div class="inline-step-text">새로 열린 PowerShell 창에서 다시 설치 명령어 실행</div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">claude <span class="opt">--version</span></span></div>
+            <div class="output">claude v2.x.x</div>
+            <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
           </div>
         </div>
  
@@ -1640,10 +1452,10 @@
       </div>
     </section>
  
-    <!-- WIN STEP 7: 첫 실행 & 인증 -->
-    <section class="step" id="win-step-7">
+        <!-- WIN STEP 6: 첫 실행 & 인증 -->
+    <section class="step" id="win-step-6">
       <div class="step-head">
-        <div class="step-num">7</div>
+        <div class="step-num">6</div>
         <h2 class="step-title">첫 실행 & 인증</h2>
       </div>
       <p class="step-desc">설치 후 처음 한 번 실행해서 Anthropic 계정 인증을 해야 해요.</p>
@@ -1696,10 +1508,10 @@
       </div>
     </section>
  
-    <!-- WIN STEP 8: 저장소 만들기 -->
-    <section class="step" id="win-step-8">
+    <!-- WIN STEP 7: 저장소 만들기 -->
+    <section class="step" id="win-step-7">
       <div class="step-head">
-        <div class="step-num">8</div>
+        <div class="step-num">7</div>
         <h2 class="step-title">저장소 직접 만들기</h2>
       </div>
       <p class="step-desc">미리 만들어진 저장소를 받지 않고 본인 손으로 빈 작업 폴더를 만들어요.<br>각 파일의 역할을 직접 이해하는 게 자산화의 첫걸음이에요.</p>
@@ -1778,7 +1590,6 @@
     <div class="checklist">
       <div class="check-item"><span class="check-mark">✓</span> git 설치 완료</div>
       <div class="check-item"><span class="check-mark">✓</span> 이름/이메일 등록</div>
-      <div class="check-item"><span class="check-mark">✓</span> Node.js & npm 설치</div>
       <div class="check-item"><span class="check-mark">✓</span> Claude Code 설치</div>
       <div class="check-item"><span class="check-mark">✓</span> 첫 실행 & 인증 완료</div>
       <div class="check-item"><span class="check-mark">✓</span> 첫 저장소 생성</div>
