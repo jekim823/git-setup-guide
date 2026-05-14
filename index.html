@@ -95,7 +95,7 @@
   .progress {
     display: flex;
     gap: 6px;
-    margin: 28px 0 0;
+    margin: 28px 0 40px;
     flex-wrap: wrap;
   }
  
@@ -205,6 +205,73 @@
   .dr { background: #ff5f57; }
   .dy { background: #febc2e; }
   .dg { background: #28c840; }
+ 
+  /* Windows 터미널 스타일 (Windows 11 기본) */
+  .terminal.win {
+    background: #0c0c0c;
+    border: 1px solid #2b2b2b;
+    border-radius: 8px;
+  }
+ 
+  .terminal.win .term-bar {
+    background: #1f1f1f;
+    padding: 0;
+    border-bottom: none;
+    justify-content: space-between;
+    gap: 0;
+    height: 32px;
+    align-items: stretch;
+  }
+ 
+  .win-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    padding: 0 12px;
+    background: #0c0c0c;
+    border-top-left-radius: 6px;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+ 
+  .win-controls {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
+ 
+  .win-btn {
+    width: 46px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Segoe UI Symbol', 'Segoe MDL2 Assets', sans-serif;
+    font-size: 10px;
+    cursor: default;
+    user-select: none;
+    transition: background 0.15s;
+  }
+ 
+  .win-btn:hover { background: rgba(255,255,255,0.08); }
+  .win-btn.close-btn:hover { background: #c42b1c; color: white; }
+ 
+  .terminal.win .term-body {
+    color: #cccccc;
+    background: #0c0c0c;
+  }
+ 
+  .terminal.win .prompt-win {
+    color: #ffffff;
+  }
+ 
+  .terminal.win .cmd { color: #ffffff; }
+  .terminal.win .output { color: #16c60c; }
+  .terminal.win .output-dim { color: #767676; }
  
   .term-title {
     margin-left: 10px;
@@ -464,6 +531,179 @@
     scroll-margin-top: 24px;
   }
  
+  /* OS 선택 탭 */
+  .os-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 6px;
+    margin: 0 0 36px;
+    position: sticky;
+    top: 16px;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+ 
+  .os-tab {
+    flex: 1;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+    user-select: none;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+  }
+ 
+  .os-tab:hover { color: var(--text-soft); }
+ 
+  .os-tab.active {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(94, 138, 255, 0.3);
+  }
+ 
+  .os-content { display: none; animation: osFadeIn 0.3s ease; }
+  .os-content.active { display: block; }
+ 
+  @keyframes osFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+ 
+  /* OS 인디케이터 배지 */
+  .os-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    background: rgba(122, 162, 255, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(122, 162, 255, 0.25);
+  }
+ 
+  /* Windows 프롬프트 색상 */
+  .prompt-win { color: #60a5fa; font-weight: 700; flex-shrink: 0; }
+ 
+  /* 경고 팁 */
+  .tip.warn {
+    background: rgba(251, 191, 36, 0.06);
+    border-color: rgba(251, 191, 36, 0.2);
+    color: #fde68a;
+  }
+  .tip.warn strong { color: #fef3c7; }
+ 
+  /* 사용 방법 선택 안내 박스 */
+  .mode-choice {
+    background: linear-gradient(135deg, rgba(122, 162, 255, 0.06) 0%, rgba(94, 138, 255, 0.04) 100%);
+    border: 1px solid rgba(122, 162, 255, 0.2);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 32px;
+  }
+ 
+  .mode-choice-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+ 
+  .mode-choice-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+ 
+  .mode-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+ 
+  @media (max-width: 640px) {
+    .mode-options { grid-template-columns: 1fr; }
+  }
+ 
+  .mode-option {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+ 
+  .mode-option-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+ 
+  .mode-option-tag.cli {
+    background: rgba(122, 162, 255, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(122, 162, 255, 0.25);
+  }
+ 
+  .mode-option-tag.app {
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+  }
+ 
+  .mode-option h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+ 
+  .mode-option p {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+ 
+  .mode-option ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+ 
+  .mode-option ul li {
+    font-size: 12px;
+    color: var(--text-soft);
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+ 
+  .mode-option ul li::before {
+    content: '·';
+    position: absolute;
+    left: 6px;
+    color: var(--text-dim);
+  }
+ 
   /* 반응형 */
   @media (max-width: 640px) {
     .container { padding: 40px 16px 64px; }
@@ -481,20 +721,30 @@
  
   <!-- 헤더 -->
   <header class="header">
-    <span class="header-tag">SETUP GUIDE</span>
+    <span class="header-tag">테크대학 여름 계절학기 · SETUP GUIDE</span>
     <h1>git 설치부터 CLI 실습까지</h1>
-    <p class="header-sub">처음 하는 분도 따라할 수 있도록 단계별로 정리했어요.<br>각 명령어는 터미널에 한 줄씩 입력하고 Enter를 누르면 돼요.</p>
-    <div class="progress">
-      <a href="#step-1" class="progress-pill">1 git 확인</a>
-      <a href="#step-2" class="progress-pill">2 git 설치</a>
-      <a href="#step-3" class="progress-pill">3 이름·이메일</a>
-      <a href="#step-4" class="progress-pill">4 npm 확인</a>
-      <a href="#step-5" class="progress-pill">5 Node.js 설치</a>
-      <a href="#step-6" class="progress-pill">6 Claude Code</a>
-      <a href="#step-7" class="progress-pill">7 인증</a>
-      <a href="#step-8" class="progress-pill">8 저장소 만들기</a>
-    </div>
+    <p class="header-sub">처음 하는 분도 따라할 수 있도록 단계별로 정리했어요.<br>본인이 사용하는 OS를 선택하고 따라하세요.</p>
   </header>
+ 
+  <!-- OS 선택 탭 -->
+  <div class="os-tabs">
+    <button class="os-tab active" onclick="switchOS('mac', this)">macOS</button>
+    <button class="os-tab" onclick="switchOS('win', this)">Windows</button>
+  </div>
+ 
+  <!-- ============ macOS 콘텐츠 ============ -->
+  <div class="os-content active" id="content-mac">
+ 
+  <div class="progress">
+    <a href="#step-1" class="progress-pill">1 git 확인</a>
+    <a href="#step-2" class="progress-pill">2 git 설치</a>
+    <a href="#step-3" class="progress-pill">3 이름·이메일</a>
+    <a href="#step-4" class="progress-pill">4 npm 확인</a>
+    <a href="#step-5" class="progress-pill">5 Node.js 설치</a>
+    <a href="#step-6" class="progress-pill">6 Claude Code</a>
+    <a href="#step-7" class="progress-pill">7 인증</a>
+    <a href="#step-8" class="progress-pill">8 저장소 만들기</a>
+  </div>
  
   <!-- STEP 1 -->
   <section class="step" id="step-1">
@@ -705,6 +955,47 @@
         <span>설치 중에 경고 메시지가 나와도 <strong>마지막에 버전이 출력되면 정상</strong>이에요.</span>
       </div>
  
+      <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">권한 에러가 나는 경우</h3>
+ 
+      <p class="step-desc" style="margin-left:0; margin-bottom:12px;">설치 중에 다음과 같은 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--red);font-size:12px;">EACCES</code> 권한 에러가 나는 경우가 있어요:</p>
+ 
+      <div class="terminal">
+        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
+        <div class="term-body">
+          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error code: 'EACCES',</div>
+          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error syscall: 'mkdir',</div>
+          <div class="output-dim" style="padding-left:0; color:var(--red);">npm error path: '/usr/local/lib/node_modules/@anthropic-ai'</div>
+          <div class="output-dim" style="padding-left:0;">npm error The operation was rejected by your operating system.</div>
+          <div class="output-dim" style="padding-left:0;">npm error It is likely you do not have the permissions to access...</div>
+        </div>
+      </div>
+ 
+      <p class="step-desc" style="margin-left:0; margin: 16px 0 12px;">이 에러는 <strong>전역 설치 권한이 없어서</strong> 발생해요. 명령어 앞에 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">sudo</code>를 붙여서 다시 실행하세요:</p>
+ 
+      <div class="terminal">
+        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
+        <div class="term-body">
+          <div class="line"><span class="prompt">%</span><span class="cmd">sudo npm install <span class="opt">-g</span> @anthropic-ai/claude-code</span></div>
+          <div class="output-dim">↳ 비밀번호를 물어보면 Mac 로그인 비밀번호 입력 (입력해도 화면에 안 보여요, 정상)</div>
+          <div class="blank"></div>
+          <div class="line"><span class="prompt">%</span><span class="cmd">claude <span class="opt">--version</span></span></div>
+          <div class="output">claude v1.0.x</div>
+          <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
+        </div>
+      </div>
+ 
+      <div class="tip">
+        <span class="tip-icon">💡</span>
+        <span><strong><code>sudo</code>가 뭔가요?</strong><br>
+        "관리자 권한으로 실행"이라는 뜻이에요. Mac이 시스템 폴더에 뭔가 설치하려면 본인이 진짜 사용자인지 확인하려고 비밀번호를 물어봐요.<br><br>
+        <strong>비밀번호 입력 시 화면에 점(●)이나 별표(*)도 안 보이지만 정상이에요.</strong> 그냥 입력하고 Enter 누르세요.</span>
+      </div>
+ 
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <span>그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
+      </div>
+ 
     </div>
   </section>
  
@@ -728,16 +1019,29 @@
       <div class="inline-steps">
         <div class="inline-step">
           <div class="inline-step-num">1</div>
-          <div class="inline-step-text">브라우저에서 <strong>Anthropic 계정 로그인</strong> 화면이 뜨면 로그인</div>
+          <div class="inline-step-text"><strong>모드 선택 화면</strong>이 먼저 나와요. 화살표 키로 모드를 고르고 Enter</div>
         </div>
         <div class="inline-step">
           <div class="inline-step-num">2</div>
-          <div class="inline-step-text">인증 완료 메시지가 나오면 터미널로 돌아오기</div>
+          <div class="inline-step-text">그 다음 <strong>인증 방법 선택</strong> 화면이 나오면 Anthropic 계정 로그인 선택</div>
         </div>
         <div class="inline-step">
           <div class="inline-step-num">3</div>
+          <div class="inline-step-text">브라우저가 자동으로 열리면서 <strong>Anthropic 계정 로그인</strong> 화면이 뜨면 로그인</div>
+        </div>
+        <div class="inline-step">
+          <div class="inline-step-num">4</div>
+          <div class="inline-step-text">인증 완료 메시지가 나오면 터미널로 돌아오기</div>
+        </div>
+        <div class="inline-step">
+          <div class="inline-step-num">5</div>
           <div class="inline-step-text">종료는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">Ctrl + C</code> 또는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">/exit</code></div>
         </div>
+      </div>
+ 
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <span><strong>모드 선택을 먼저 해야 브라우저 계정 연결 화면으로 넘어가요.</strong> 모드 선택 없이 멈춰있다면 그 단계가 안 넘어간 거예요.</span>
       </div>
  
       <div class="tip">
@@ -800,6 +1104,494 @@
     </div>
   </section>
  
+  </div>
+  <!-- ============ /macOS 콘텐츠 끝 ============ -->
+ 
+ 
+  <!-- ============ Windows 콘텐츠 시작 ============ -->
+  <div class="os-content" id="content-win">
+ 
+    <div class="progress">
+      <a href="#win-step-1" class="progress-pill">1 PowerShell 열기</a>
+      <a href="#win-step-2" class="progress-pill">2 git 확인</a>
+      <a href="#win-step-3" class="progress-pill">3 git 설치</a>
+      <a href="#win-step-4" class="progress-pill">4 이름·이메일</a>
+      <a href="#win-step-5" class="progress-pill">5 Node.js 설치</a>
+      <a href="#win-step-6" class="progress-pill">6 Claude Code</a>
+      <a href="#win-step-7" class="progress-pill">7 인증</a>
+      <a href="#win-step-8" class="progress-pill">8 저장소 만들기</a>
+    </div>
+ 
+    <div class="tip warn" style="margin-bottom: 32px;">
+      <span class="tip-icon">⚠️</span>
+      <span><strong>Windows 사용자 주의사항</strong><br>
+      Claude CLI 설치 후 <strong>IDE에 내장된 PowerShell</strong>(VS Code, IntelliJ 등)에서 <code>claude</code> 명령어가 인식되지 않는 경우가 있어요.<br>
+      → <strong>반드시 별도의 PowerShell 창</strong>(Windows 시작 메뉴에서 직접 연 PowerShell)에서 실습을 진행하세요.<br>
+      그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
+    </div>
+ 
+    <!-- WIN STEP 1: PowerShell 열기 -->
+    <section class="step" id="win-step-1">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2 class="step-title">PowerShell 열기</h2>
+      </div>
+      <p class="step-desc">Windows에서는 <strong>PowerShell</strong>을 사용해요. 시작 메뉴에서 검색해서 열 수 있어요.</p>
+      <div class="step-content">
+ 
+        <div class="inline-steps">
+          <div class="inline-step">
+            <div class="inline-step-num">1</div>
+            <div class="inline-step-text">키보드 <strong>Windows 키</strong>(또는 화면 좌측 하단 시작 버튼) 누르기</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">2</div>
+            <div class="inline-step-text">"<strong>PowerShell</strong>" 입력</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">3</div>
+            <div class="inline-step-text"><strong>Windows PowerShell</strong> 클릭해서 열기</div>
+          </div>
+        </div>
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS C:\Users\jinny&gt;</span></div>
+            <div class="output-dim">↳ 이렇게 PS로 시작하는 프롬프트가 보이면 정상</div>
+          </div>
+        </div>
+ 
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span><strong>프롬프트 구분법:</strong><br>
+          - <code>PS C:\</code> 로 시작 → PowerShell (정상!)<br>
+          - <code>C:\</code> 만 있음 → CMD (다른 창이에요, PowerShell로 다시 여세요)</span>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 2: git 확인 -->
+    <section class="step" id="win-step-2">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2 class="step-title">git이 이미 있는지 확인</h2>
+      </div>
+      <p class="step-desc">git이 이미 설치돼 있는지 확인해요.</p>
+      <div class="step-content">
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">git <span class="opt">--version</span></span></div>
+          </div>
+        </div>
+ 
+        <div class="branches">
+          <div class="branch branch-ok">
+            <div class="branch-label">✓ 결과 A</div>
+            <div class="branch-text"><code style="font-family:'JetBrains Mono',monospace;color:var(--green)">git version 2.x.x</code> 가 나오면<br>이미 설치됨 → <strong>STEP 4로 이동</strong></div>
+          </div>
+          <div class="branch branch-err">
+            <div class="branch-label">✗ 결과 B</div>
+            <div class="branch-text"><code style="font-family:'JetBrains Mono',monospace;color:var(--red)">'git' is not recognized</code> 오류 → <strong>STEP 3으로 이동</strong></div>
+          </div>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 3: git 설치 -->
+    <section class="step" id="win-step-3">
+      <div class="step-head">
+        <div class="step-num optional">3</div>
+        <h2 class="step-title">Git for Windows 설치</h2>
+        <span class="step-badge">OPTIONAL · git 없을 때만</span>
+      </div>
+      <p class="step-desc">Windows는 <strong>브라우저에서 설치 파일을 다운로드</strong>해서 설치해요. macOS처럼 명령어로 설치되지 않아요.</p>
+      <div class="step-content">
+ 
+        <div class="inline-steps">
+          <div class="inline-step">
+            <div class="inline-step-num">1</div>
+            <div class="inline-step-text">브라우저에서 <strong>https://git-scm.com/downloads/win</strong> 접속</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">2</div>
+            <div class="inline-step-text"><strong>"Standalone Installer"</strong> 항목에서 본인 PC에 맞는 버전 클릭<br>(대부분 <strong>64-bit Git for Windows Setup</strong>)</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">3</div>
+            <div class="inline-step-text">다운받은 <code>.exe</code> 파일 실행</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">4</div>
+            <div class="inline-step-text">설치 마법사에서 <strong>전부 기본값(Next) 그대로 진행</strong> → Install</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">5</div>
+            <div class="inline-step-text">설치 완료 후 <strong>PowerShell을 완전히 닫고 다시 열기</strong> ← 꼭 해야 해요!</div>
+          </div>
+        </div>
+ 
+        <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">설치 후 다시 확인:</p>
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">git <span class="opt">--version</span></span></div>
+            <div class="output">git version 2.45.0.windows.1</div>
+            <div class="output-dim">↑ 이렇게 버전이 나오면 성공 🎉</div>
+          </div>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 4: 이름/이메일 -->
+    <section class="step" id="win-step-4">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2 class="step-title">git에 내 이름 / 이메일 등록</h2>
+      </div>
+      <p class="step-desc">git은 코드를 저장할 때 <strong>"누가 저장했는지"</strong> 기록을 남겨요. 그래서 미리 본인 이름과 이메일을 등록해둬야 해요.</p>
+      <div class="step-content">
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">git config <span class="opt">--global</span> user.name <span class="str">"홍길동"</span></span></div>
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">git config <span class="opt">--global</span> user.email <span class="str">"hong@email.com"</span></span></div>
+          </div>
+        </div>
+ 
+        <div class="tip">
+          <span class="tip-icon">✏️</span>
+          <span>따옴표 안의 내용만 <strong>본인 이름/이메일</strong>로 바꾸세요.<br>아무 반응 없이 다음 줄로 넘어가면 성공이에요.</span>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 5: Node.js 설치 -->
+    <section class="step" id="win-step-5">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2 class="step-title">Node.js 설치</h2>
+      </div>
+      <p class="step-desc">Claude Code를 설치하려면 Node.js가 필요해요. 먼저 있는지 확인:</p>
+      <div class="step-content">
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">node <span class="opt">--version</span></span></div>
+          </div>
+        </div>
+ 
+        <div class="branches">
+          <div class="branch branch-ok">
+            <div class="branch-label">✓ 결과 A</div>
+            <div class="branch-text">버전 숫자가 나오면<br>Node.js 있음 → <strong>STEP 6으로 이동</strong></div>
+          </div>
+          <div class="branch branch-err">
+            <div class="branch-label">✗ 결과 B</div>
+            <div class="branch-text">오류가 나면<br>아래 설치 방법 따라하기</div>
+          </div>
+        </div>
+ 
+        <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">Node.js 설치 방법:</p>
+ 
+        <div class="inline-steps">
+          <div class="inline-step">
+            <div class="inline-step-num">1</div>
+            <div class="inline-step-text">브라우저에서 <strong>https://nodejs.org</strong> 접속</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">2</div>
+            <div class="inline-step-text"><strong>LTS 버전</strong> 다운로드 클릭 (Windows Installer .msi)</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">3</div>
+            <div class="inline-step-text">다운받은 파일 실행해서 설치 (전부 기본값 Next)</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">4</div>
+            <div class="inline-step-text"><strong>PowerShell 완전히 닫고 다시 열기</strong> ← 필수!</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">5</div>
+            <div class="inline-step-text">설치 확인:</div>
+          </div>
+        </div>
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">node <span class="opt">--version</span></span></div>
+            <div class="output">v20.11.1</div>
+            <div class="blank"></div>
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">npm <span class="opt">--version</span></span></div>
+            <div class="output">10.2.4</div>
+            <div class="output-dim">↑ 둘 다 나오면 성공 🎉</div>
+          </div>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 6: Claude Code 설치 -->
+    <section class="step" id="win-step-6">
+      <div class="step-head">
+        <div class="step-num">6</div>
+        <h2 class="step-title">Claude Code 설치</h2>
+      </div>
+      <p class="step-desc">Node.js가 준비됐으면 Claude Code를 설치해요.</p>
+      <div class="step-content">
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">npm install <span class="opt">-g</span> @anthropic-ai/claude-code</span></div>
+            <div class="output-dim">설치 중... 잠깐 기다려요</div>
+            <div class="blank"></div>
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">claude <span class="opt">--version</span></span></div>
+            <div class="output">claude v1.0.x</div>
+            <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
+          </div>
+        </div>
+ 
+        <div class="tip warn">
+          <span class="tip-icon">⚠️</span>
+          <span><strong>IDE 내장 PowerShell에서 인식 안 될 때</strong><br>
+          VS Code 등 IDE 내장 PowerShell에서 <code>claude</code>가 안 잡히면, <strong>Windows 시작 메뉴에서 별도로 연 PowerShell</strong>에서 실습 진행하세요.</span>
+        </div>
+ 
+        <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">권한 에러가 나는 경우</h3>
+ 
+        <p class="step-desc" style="margin-left:0; margin-bottom:12px;"><code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--red);font-size:12px;">EACCES</code> 또는 권한 관련 에러가 나면 <strong>관리자 권한으로 PowerShell을 다시 열어보세요</strong>:</p>
+ 
+        <div class="inline-steps">
+          <div class="inline-step">
+            <div class="inline-step-num">1</div>
+            <div class="inline-step-text">시작 메뉴에서 <strong>PowerShell</strong> 검색</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">2</div>
+            <div class="inline-step-text">결과 화면에서 <strong>"관리자 권한으로 실행"</strong> 클릭</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">3</div>
+            <div class="inline-step-text">UAC 창이 뜨면 <strong>예</strong> 클릭</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">4</div>
+            <div class="inline-step-text">새로 열린 PowerShell 창에서 다시 설치 명령어 실행</div>
+          </div>
+        </div>
+ 
+        <div class="tip warn">
+          <span class="tip-icon">⚠️</span>
+          <span>그래도 안 되면 <a href="https://deliveryhero.enterprise.slack.com/archives/C024ZPBCG7Q" target="_blank" style="color:var(--accent); text-decoration:underline;">#support-devex 채널</a>에 문의하세요!</span>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 7: 첫 실행 & 인증 -->
+    <section class="step" id="win-step-7">
+      <div class="step-head">
+        <div class="step-num">7</div>
+        <h2 class="step-title">첫 실행 & 인증</h2>
+      </div>
+      <p class="step-desc">설치 후 처음 한 번 실행해서 Anthropic 계정 인증을 해야 해요.</p>
+      <div class="step-content">
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">claude</span></div>
+          </div>
+        </div>
+ 
+        <div class="inline-steps">
+          <div class="inline-step">
+            <div class="inline-step-num">1</div>
+            <div class="inline-step-text"><strong>모드 선택 화면</strong>이 먼저 나와요. 화살표 키로 모드를 고르고 Enter</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">2</div>
+            <div class="inline-step-text">그 다음 <strong>인증 방법 선택</strong> 화면이 나오면 Anthropic 계정 로그인 선택</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">3</div>
+            <div class="inline-step-text">브라우저가 자동으로 열리면서 <strong>Anthropic 계정 로그인</strong> 화면이 뜨면 로그인</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">4</div>
+            <div class="inline-step-text">인증 완료 메시지가 나오면 PowerShell로 돌아오기</div>
+          </div>
+          <div class="inline-step">
+            <div class="inline-step-num">5</div>
+            <div class="inline-step-text">종료는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">Ctrl + C</code> 또는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">/exit</code></div>
+          </div>
+        </div>
+ 
+        <div class="tip warn">
+          <span class="tip-icon">⚠️</span>
+          <span><strong>모드 선택을 먼저 해야 브라우저 계정 연결 화면으로 넘어가요.</strong> 모드 선택 없이 멈춰있다면 그 단계가 안 넘어간 거예요.</span>
+        </div>
+ 
+      </div>
+    </section>
+ 
+    <!-- WIN STEP 8: 저장소 만들기 -->
+    <section class="step" id="win-step-8">
+      <div class="step-head">
+        <div class="step-num">8</div>
+        <h2 class="step-title">저장소 직접 만들기</h2>
+      </div>
+      <p class="step-desc">미리 만들어진 저장소를 받지 않고 본인 손으로 빈 작업 폴더를 만들어요.<br>각 파일의 역할을 직접 이해하는 게 자산화의 첫걸음이에요.</p>
+      <div class="step-content">
+ 
+        <div class="tip">
+          <span class="tip-icon">📍</span>
+          <span><strong>어디에 입력하나요?</strong><br>지금까지 했던 것처럼 <strong>별도로 연 PowerShell 창</strong>에 입력하면 돼요. 아래 명령어를 <strong>한 줄씩</strong> 입력하고 Enter를 누르세요.</span>
+        </div>
+ 
+        <h3 style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:12px; letter-spacing:-0.2px;">Step 1. 빈 작업 폴더 생성</h3>
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">mkdir wit-claude-intermediate</span><span class="comment"># 폴더 생성</span></div>
+            <div class="output-dim">↳ 생성 결과가 표시되면 정상</div>
+            <div class="blank"></div>
+ 
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">cd wit-claude-intermediate</span><span class="comment"># 폴더 안으로 이동</span></div>
+            <div class="output-dim">↳ 프롬프트 끝이 \wit-claude-intermediate&gt; 로 바뀜</div>
+            <div class="blank"></div>
+ 
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">git init</span><span class="comment"># git 저장소 초기화</span></div>
+            <div class="output">Initialized empty Git repository in C:/Users/jinny/wit-claude-intermediate/.git/</div>
+          </div>
+        </div>
+ 
+        <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">Step 2. Claude Code 실행</h3>
+ 
+        <p class="step-desc" style="margin-left:0; margin-bottom:12px;">방금 만든 폴더 안에서 그대로 아래 명령어를 입력해요.</p>
+ 
+        <div class="terminal win">
+          <div class="term-bar">
+            <div class="win-tab">
+              <span>Windows PowerShell — wit-claude-intermediate</span>
+            </div>
+            <div class="win-controls">
+              <div class="win-btn">─</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close-btn">×</div>
+            </div>
+          </div>
+          <div class="term-body">
+            <div class="line"><span class="prompt-win">PS&gt;</span><span class="cmd">claude</span></div>
+            <div class="output-dim">↳ 현재 폴더에서 Claude Code가 실행돼요</div>
+          </div>
+        </div>
+ 
+        <div class="tip">
+          <span class="tip-icon">💡</span>
+          <span>또는 <strong>Claude Desktop의 Code 모드</strong>에서 이 폴더를 열어도 돼요.</span>
+        </div>
+ 
+      </div>
+    </section>
+ 
+  </div>
+  <!-- ============ /Windows 콘텐츠 끝 ============ -->
+ 
+ 
   <!-- 완료 -->
   <div class="complete">
     <div class="complete-emoji">🎉</div>
@@ -816,6 +1608,21 @@
   </div>
  
 </div>
+ 
+<script>
+function switchOS(os, btn) {
+  // 탭 활성화
+  document.querySelectorAll('.os-tab').forEach(tab => tab.classList.remove('active'));
+  btn.classList.add('active');
+ 
+  // 콘텐츠 전환
+  document.querySelectorAll('.os-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('content-' + os).classList.add('active');
+ 
+  // 페이지 상단으로 스크롤
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
  
 </body>
 </html>
