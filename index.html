@@ -25,9 +25,9 @@
     --red: #f87171;
     --code-bg: #0d1320;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   html, body {
     background: var(--bg);
     color: var(--text);
@@ -35,7 +35,7 @@
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
   }
-
+ 
   /* 배경 그라데이션 효과 */
   body::before {
     content: '';
@@ -47,7 +47,7 @@
     pointer-events: none;
     z-index: 0;
   }
-
+ 
   .container {
     max-width: 880px;
     margin: 0 auto;
@@ -55,14 +55,14 @@
     position: relative;
     z-index: 1;
   }
-
+ 
   /* 헤더 */
   .header {
     margin-bottom: 56px;
     padding-bottom: 32px;
     border-bottom: 1px solid var(--border-soft);
   }
-
+ 
   .header-tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
@@ -75,7 +75,7 @@
     margin-bottom: 16px;
     letter-spacing: 0.5px;
   }
-
+ 
   h1 {
     font-size: 36px;
     font-weight: 800;
@@ -84,13 +84,13 @@
     margin-bottom: 10px;
     line-height: 1.25;
   }
-
+ 
   .header-sub {
     font-size: 15px;
     color: var(--text-soft);
     line-height: 1.6;
   }
-
+ 
   /* 진행 인디케이터 */
   .progress {
     display: flex;
@@ -98,7 +98,7 @@
     margin: 28px 0 0;
     flex-wrap: wrap;
   }
-
+ 
   .progress-pill {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -108,20 +108,20 @@
     border: 1px solid var(--border-soft);
     color: var(--text-dim);
   }
-
+ 
   /* 스텝 */
   .step {
     margin-bottom: 48px;
     position: relative;
   }
-
+ 
   .step-head {
     display: flex;
     align-items: center;
     gap: 14px;
     margin-bottom: 14px;
   }
-
+ 
   .step-num {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     color: white;
@@ -137,19 +137,19 @@
     flex-shrink: 0;
     box-shadow: 0 4px 14px rgba(94, 138, 255, 0.3);
   }
-
+ 
   .step-num.optional {
     background: linear-gradient(135deg, var(--yellow) 0%, #f59e0b 100%);
     box-shadow: 0 4px 14px rgba(251, 191, 36, 0.25);
   }
-
+ 
   .step-title {
     font-size: 22px;
     font-weight: 700;
     color: var(--text);
     letter-spacing: -0.4px;
   }
-
+ 
   .step-badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -160,7 +160,7 @@
     color: var(--yellow);
     border: 1px solid rgba(251, 191, 36, 0.25);
   }
-
+ 
   .step-desc {
     font-size: 14px;
     color: var(--text-soft);
@@ -168,16 +168,16 @@
     margin-bottom: 16px;
     line-height: 1.7;
   }
-
+ 
   .step-desc strong {
     color: var(--text);
     font-weight: 600;
   }
-
+ 
   .step-content {
     margin-left: 48px;
   }
-
+ 
   /* 터미널 캡쳐 */
   .terminal {
     background: var(--code-bg);
@@ -187,7 +187,7 @@
     margin-bottom: 14px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   }
-
+ 
   .term-bar {
     background: var(--panel-2);
     padding: 10px 14px;
@@ -196,7 +196,7 @@
     gap: 7px;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .dot {
     width: 12px;
     height: 12px;
@@ -205,61 +205,61 @@
   .dr { background: #ff5f57; }
   .dy { background: #febc2e; }
   .dg { background: #28c840; }
-
+ 
   .term-title {
     margin-left: 10px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: var(--text-dim);
   }
-
+ 
   .term-body {
     padding: 18px 20px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13.5px;
     line-height: 1.9;
   }
-
+ 
   .line {
     display: flex;
     align-items: baseline;
     gap: 10px;
   }
-
+ 
   .prompt {
     color: var(--accent);
     font-weight: 700;
     flex-shrink: 0;
   }
-
+ 
   .cmd {
     color: var(--text);
   }
-
+ 
   .cmd .opt { color: #fbbf24; }
   .cmd .str { color: #86efac; }
   .cmd .kw { color: #7aa2ff; }
-
+ 
   .comment {
     color: var(--text-dim);
     font-size: 12px;
     margin-left: auto;
     white-space: nowrap;
   }
-
+ 
   .output {
     color: var(--green);
     padding-left: 24px;
   }
-
+ 
   .output-dim {
     color: var(--text-dim);
     padding-left: 24px;
     font-size: 12.5px;
   }
-
+ 
   .blank { height: 12px; }
-
+ 
   /* 분기 박스 */
   .branches {
     display: grid;
@@ -267,27 +267,27 @@
     gap: 12px;
     margin-top: 16px;
   }
-
+ 
   @media (max-width: 640px) {
     .branches { grid-template-columns: 1fr; }
   }
-
+ 
   .branch {
     border-radius: 10px;
     padding: 14px 16px;
     border: 1px solid;
   }
-
+ 
   .branch-ok {
     background: rgba(74, 222, 128, 0.06);
     border-color: rgba(74, 222, 128, 0.25);
   }
-
+ 
   .branch-err {
     background: rgba(248, 113, 113, 0.05);
     border-color: rgba(248, 113, 113, 0.2);
   }
-
+ 
   .branch-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -295,18 +295,18 @@
     margin-bottom: 6px;
     letter-spacing: 0.3px;
   }
-
+ 
   .branch-ok .branch-label { color: var(--green); }
   .branch-err .branch-label { color: var(--red); }
-
+ 
   .branch-text {
     font-size: 13px;
     color: var(--text-soft);
     line-height: 1.6;
   }
-
+ 
   .branch-text strong { color: var(--text); }
-
+ 
   /* 팁 박스 */
   .tip {
     display: flex;
@@ -320,10 +320,10 @@
     color: #c5d3ff;
     line-height: 1.65;
   }
-
+ 
   .tip-icon { flex-shrink: 0; }
   .tip strong { color: var(--accent); }
-
+ 
   .tip code {
     background: rgba(122, 162, 255, 0.12);
     padding: 1px 6px;
@@ -331,7 +331,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
   }
-
+ 
   /* 인라인 스텝 리스트 */
   .inline-steps {
     background: var(--panel);
@@ -340,18 +340,18 @@
     padding: 16px 20px;
     margin-bottom: 14px;
   }
-
+ 
   .inline-step {
     display: flex;
     gap: 14px;
     padding: 8px 0;
     align-items: flex-start;
   }
-
+ 
   .inline-step + .inline-step {
     border-top: 1px dashed var(--border-soft);
   }
-
+ 
   .inline-step-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -368,15 +368,15 @@
     flex-shrink: 0;
     margin-top: 2px;
   }
-
+ 
   .inline-step-text {
     font-size: 13.5px;
     color: var(--text-soft);
     line-height: 1.6;
   }
-
+ 
   .inline-step-text strong { color: var(--text); }
-
+ 
   /* 완료 카드 */
   .complete {
     margin-top: 64px;
@@ -386,9 +386,9 @@
     padding: 32px;
     text-align: center;
   }
-
+ 
   .complete-emoji { font-size: 40px; margin-bottom: 12px; }
-
+ 
   .complete h2 {
     font-size: 24px;
     color: var(--text);
@@ -396,13 +396,13 @@
     font-weight: 700;
     letter-spacing: -0.4px;
   }
-
+ 
   .complete p {
     color: var(--text-soft);
     font-size: 14px;
     margin-bottom: 20px;
   }
-
+ 
   .checklist {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -411,7 +411,7 @@
     max-width: 600px;
     margin: 0 auto;
   }
-
+ 
   .check-item {
     display: flex;
     align-items: center;
@@ -422,12 +422,12 @@
     font-size: 13px;
     color: var(--text);
   }
-
+ 
   .check-mark {
     color: var(--green);
     font-weight: 700;
   }
-
+ 
   /* 연결선 */
   .connector {
     margin-left: 16px;
@@ -436,13 +436,34 @@
     background: linear-gradient(to bottom, var(--border) 0%, transparent 100%);
     margin-bottom: 16px;
   }
-
+ 
+  html { scroll-behavior: smooth; }
+ 
   /* 강조 텍스트 */
   .highlight {
     color: var(--accent);
     font-weight: 600;
   }
-
+ 
+  /* progress-pill 링크 스타일 */
+  a.progress-pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+ 
+  a.progress-pill:hover {
+    background: rgba(122, 162, 255, 0.12);
+    border-color: rgba(122, 162, 255, 0.35);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+ 
+  /* 스크롤 시 step이 헤더에 가리지 않도록 */
+  .step {
+    scroll-margin-top: 24px;
+  }
+ 
   /* 반응형 */
   @media (max-width: 640px) {
     .container { padding: 40px 16px 64px; }
@@ -455,48 +476,47 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="container">
-
+ 
   <!-- 헤더 -->
   <header class="header">
     <span class="header-tag">SETUP GUIDE</span>
     <h1>git 설치부터 CLI 실습까지</h1>
     <p class="header-sub">처음 하는 분도 따라할 수 있도록 단계별로 정리했어요.<br>각 명령어는 터미널에 한 줄씩 입력하고 Enter를 누르면 돼요.</p>
     <div class="progress">
-      <span class="progress-pill">1 git 확인</span>
-      <span class="progress-pill">2 git 설치</span>
-      <span class="progress-pill">3 이름·이메일</span>
-      <span class="progress-pill">4 npm 확인</span>
-      <span class="progress-pill">5 Node.js 설치</span>
-      <span class="progress-pill">6 Claude Code</span>
-      <span class="progress-pill">7 인증</span>
-      <span class="progress-pill">8 CLI 실습</span>
-      <span class="progress-pill">9 저장소 만들기</span>
+      <a href="#step-1" class="progress-pill">1 git 확인</a>
+      <a href="#step-2" class="progress-pill">2 git 설치</a>
+      <a href="#step-3" class="progress-pill">3 이름·이메일</a>
+      <a href="#step-4" class="progress-pill">4 npm 확인</a>
+      <a href="#step-5" class="progress-pill">5 Node.js 설치</a>
+      <a href="#step-6" class="progress-pill">6 Claude Code</a>
+      <a href="#step-7" class="progress-pill">7 인증</a>
+      <a href="#step-8" class="progress-pill">8 저장소 만들기</a>
     </div>
   </header>
-
+ 
   <!-- STEP 1 -->
-  <section class="step">
+  <section class="step" id="step-1">
     <div class="step-head">
       <div class="step-num">1</div>
       <h2 class="step-title">git이 이미 있는지 확인</h2>
     </div>
     <p class="step-desc">먼저 터미널을 열고 git이 이미 설치돼 있는지 확인해요.</p>
     <div class="step-content">
-
+ 
       <div class="tip">
         <span class="tip-icon">💡</span>
         <span><strong>터미널 여는 법:</strong> <code>⌘ + Space</code> → "터미널" 입력 → Enter</span>
       </div>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
           <div class="line"><span class="prompt">%</span><span class="cmd">git <span class="opt">--version</span></span></div>
         </div>
       </div>
-
+ 
       <div class="branches">
         <div class="branch branch-ok">
           <div class="branch-label">✓ 결과 A</div>
@@ -507,12 +527,12 @@
           <div class="branch-text"><code style="font-family:'JetBrains Mono',monospace;color:var(--red)">command not found</code> 오류 → <strong>STEP 2로 이동</strong></div>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 2 -->
-  <section class="step">
+  <section class="step" id="step-2">
     <div class="step-head">
       <div class="step-num optional">2</div>
       <h2 class="step-title">git 설치</h2>
@@ -520,21 +540,21 @@
     </div>
     <p class="step-desc">macOS는 아래 명령어 한 줄로 git을 설치할 수 있어요.</p>
     <div class="step-content">
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
           <div class="line"><span class="prompt">%</span><span class="cmd">xcode-select <span class="opt">--install</span></span></div>
         </div>
       </div>
-
+ 
       <div class="tip">
         <span class="tip-icon">📦</span>
         <span>설치 창이 팝업으로 뜨면 <strong>[설치]</strong> 버튼 클릭 → 5~10분 대기</span>
       </div>
-
+ 
       <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">설치 후 다시 확인:</p>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -543,19 +563,19 @@
           <div class="output-dim">↑ 이렇게 버전이 나오면 성공 🎉</div>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 3 -->
-  <section class="step">
+  <section class="step" id="step-3">
     <div class="step-head">
       <div class="step-num">3</div>
       <h2 class="step-title">git에 내 이름 / 이메일 등록</h2>
     </div>
     <p class="step-desc">git은 코드를 저장할 때 <strong>"누가 저장했는지"</strong> 기록을 남겨요. 그래서 미리 본인 이름과 이메일을 등록해둬야 해요.</p>
     <div class="step-content">
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -563,14 +583,14 @@
           <div class="line"><span class="prompt">%</span><span class="cmd">git config <span class="opt">--global</span> user.email <span class="str">"hong@email.com"</span></span></div>
         </div>
       </div>
-
+ 
       <div class="tip">
         <span class="tip-icon">✏️</span>
         <span>따옴표 안의 내용만 <strong>본인 이름/이메일</strong>로 바꾸세요.<br>아무 반응 없이 다음 줄로 넘어가면 성공이에요.</span>
       </div>
-
+ 
       <p class="step-desc" style="margin-left:0; margin-top:18px; margin-bottom:10px;">확인하고 싶다면:</p>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -581,26 +601,26 @@
           <div class="output">hong@email.com</div>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 4 -->
-  <section class="step">
+  <section class="step" id="step-4">
     <div class="step-head">
       <div class="step-num">4</div>
       <h2 class="step-title">npm 확인 (Claude Code 설치 전)</h2>
     </div>
     <p class="step-desc">Claude Code를 설치하려면 npm이 필요해요. 먼저 npm이 있는지 확인해요.</p>
     <div class="step-content">
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
           <div class="line"><span class="prompt">%</span><span class="cmd">npm <span class="opt">--version</span></span></div>
         </div>
       </div>
-
+ 
       <div class="branches">
         <div class="branch branch-ok">
           <div class="branch-label">✓ 결과 A</div>
@@ -611,12 +631,12 @@
           <div class="branch-text"><code style="font-family:'JetBrains Mono',monospace;color:var(--red)">command not found</code> 오류 → <strong>STEP 5로 이동</strong></div>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 5 -->
-  <section class="step">
+  <section class="step" id="step-5">
     <div class="step-head">
       <div class="step-num optional">5</div>
       <h2 class="step-title">Node.js 설치</h2>
@@ -624,7 +644,7 @@
     </div>
     <p class="step-desc">Node.js를 설치하면 npm도 함께 설치돼요.</p>
     <div class="step-content">
-
+ 
       <div class="inline-steps">
         <div class="inline-step">
           <div class="inline-step-num">1</div>
@@ -643,7 +663,7 @@
           <div class="inline-step-text">설치 확인 (아래 명령어 실행)</div>
         </div>
       </div>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -655,19 +675,19 @@
           <div class="output-dim">↑ 둘 다 나오면 성공 🎉</div>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 6 -->
-  <section class="step">
+  <section class="step" id="step-6">
     <div class="step-head">
       <div class="step-num">6</div>
       <h2 class="step-title">Claude Code 설치</h2>
     </div>
     <p class="step-desc">npm이 준비됐으면 Claude Code를 설치해요.</p>
     <div class="step-content">
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -679,24 +699,24 @@
           <div class="output-dim">↑ 버전이 나오면 성공 🎉</div>
         </div>
       </div>
-
+ 
       <div class="tip">
         <span class="tip-icon">⚠️</span>
         <span>설치 중에 경고 메시지가 나와도 <strong>마지막에 버전이 출력되면 정상</strong>이에요.</span>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 7 -->
-  <section class="step">
+  <section class="step" id="step-7">
     <div class="step-head">
       <div class="step-num">7</div>
       <h2 class="step-title">첫 실행 & 인증</h2>
     </div>
     <p class="step-desc">설치 후 처음 한 번 실행해서 Anthropic 계정 인증을 해야 해요.</p>
     <div class="step-content">
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
@@ -704,7 +724,7 @@
           <div class="output-dim">↑ 브라우저가 자동으로 열려요</div>
         </div>
       </div>
-
+ 
       <div class="inline-steps">
         <div class="inline-step">
           <div class="inline-step-num">1</div>
@@ -719,104 +739,51 @@
           <div class="inline-step-text">종료는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">Ctrl + C</code> 또는 <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:12px;">/exit</code></div>
         </div>
       </div>
-
+ 
       <div class="tip">
         <span class="tip-icon">💡</span>
         <span>Claude Desktop 앱의 <strong>Code 모드</strong>를 한 번 열어도 인증이 돼요.</span>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- STEP 8 -->
-  <section class="step">
+  <section class="step" id="step-8">
     <div class="step-head">
       <div class="step-num">8</div>
-      <h2 class="step-title">CLI 실습</h2>
-    </div>
-    <p class="step-desc">터미널 기본 명령어를 연습해봐요. 아래 명령어를 <strong>한 줄씩</strong> 입력하고 Enter를 눌러보세요.</p>
-    <div class="step-content">
-
-      <div class="tip">
-        <span class="tip-icon">📍</span>
-        <span><strong>어디에 입력하나요?</strong><br>지금까지 했던 것처럼 <strong>일반 터미널</strong>에 입력하면 돼요.</span>
-      </div>
-
-      <div class="terminal">
-        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
-        <div class="term-body">
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">mkdir cli-practice</span><span class="comment"># 폴더 생성</span></div>
-          <div class="output-dim">↳ 아무 반응 없으면 정상</div>
-          <div class="blank"></div>
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">cd cli-practice</span><span class="comment"># 폴더 안으로 이동</span></div>
-          <div class="output-dim">↳ 프롬프트가 cli-practice % 로 바뀜</div>
-          <div class="blank"></div>
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">pwd</span><span class="comment"># 현재 위치 확인</span></div>
-          <div class="output">/Users/jinny/cli-practice</div>
-          <div class="blank"></div>
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">ls</span><span class="comment"># 폴더 내용 보기</span></div>
-          <div class="output-dim">↳ 빈 폴더라 아무것도 안 나와도 정상</div>
-          <div class="blank"></div>
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">git init</span><span class="comment"># git 저장소 초기화</span></div>
-          <div class="output">Initialized empty Git repository in /Users/jinny/cli-practice/.git/</div>
-          <div class="blank"></div>
-
-          <div class="line"><span class="prompt">%</span><span class="cmd">ls <span class="opt">-a</span></span><span class="comment"># 숨김 파일 포함 보기</span></div>
-          <div class="output">.&nbsp;&nbsp;..&nbsp;&nbsp;.git</div>
-          <div class="output-dim">↳ .git 이 보이면 성공 🎉</div>
-
-        </div>
-      </div>
-
-      <div class="tip">
-        <span class="tip-icon">🔍</span>
-        <span><code>.git</code>은 git이 변경 이력을 저장하는 <strong>숨김 폴더</strong>예요. <code>ls</code>만 했을 땐 안 보이고, <code>ls -a</code>를 해야 보여요.</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STEP 9 -->
-  <section class="step">
-    <div class="step-head">
-      <div class="step-num">9</div>
       <h2 class="step-title">저장소 직접 만들기</h2>
     </div>
     <p class="step-desc">미리 만들어진 저장소를 받지 않고 본인 손으로 빈 작업 폴더를 만들어요.<br>각 파일의 역할을 직접 이해하는 게 자산화의 첫걸음이에요.</p>
     <div class="step-content">
-
+ 
       <div class="tip">
         <span class="tip-icon">📍</span>
         <span><strong>어디에 입력하나요?</strong><br>지금까지 했던 것처럼 <strong>일반 터미널</strong>에 입력하면 돼요. 아래 명령어를 <strong>한 줄씩</strong> 입력하고 Enter를 누르세요.</span>
       </div>
-
+ 
       <h3 style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:12px; letter-spacing:-0.2px;">Step 1. 빈 작업 폴더 생성</h3>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — bash</span></div>
         <div class="term-body">
           <div class="line"><span class="prompt">%</span><span class="cmd">mkdir wit-claude-intermediate</span><span class="comment"># 폴더 생성</span></div>
           <div class="output-dim">↳ 아무 반응 없으면 정상, 다음 줄 입력</div>
           <div class="blank"></div>
-
+ 
           <div class="line"><span class="prompt">%</span><span class="cmd">cd wit-claude-intermediate</span><span class="comment"># 폴더 안으로 이동</span></div>
           <div class="output-dim">↳ 프롬프트가 wit-claude-intermediate % 로 바뀜</div>
           <div class="blank"></div>
-
+ 
           <div class="line"><span class="prompt">%</span><span class="cmd">git init</span><span class="comment"># git 저장소 초기화</span></div>
           <div class="output">Initialized empty Git repository in /Users/jinny/wit-claude-intermediate/.git/</div>
         </div>
       </div>
-
+ 
       <h3 style="font-size:15px; font-weight:700; color:var(--text); margin: 24px 0 12px; letter-spacing:-0.2px;">Step 2. Claude Code 실행</h3>
-
+ 
       <p class="step-desc" style="margin-left:0; margin-bottom:12px;">방금 만든 폴더 안에서 그대로 아래 명령어를 입력해요.</p>
-
+ 
       <div class="terminal">
         <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div><span class="term-title">jinny — wit-claude-intermediate</span></div>
         <div class="term-body">
@@ -824,15 +791,15 @@
           <div class="output-dim">↳ 현재 폴더에서 Claude Code가 실행돼요</div>
         </div>
       </div>
-
+ 
       <div class="tip">
         <span class="tip-icon">💡</span>
         <span>또는 <strong>Claude Desktop의 Code 모드</strong>에서 이 폴더를 열어도 돼요.</span>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <!-- 완료 -->
   <div class="complete">
     <div class="complete-emoji">🎉</div>
@@ -844,12 +811,12 @@
       <div class="check-item"><span class="check-mark">✓</span> Node.js & npm 설치</div>
       <div class="check-item"><span class="check-mark">✓</span> Claude Code 설치</div>
       <div class="check-item"><span class="check-mark">✓</span> 첫 실행 & 인증 완료</div>
-      <div class="check-item"><span class="check-mark">✓</span> CLI 실습 완료</div>
       <div class="check-item"><span class="check-mark">✓</span> 첫 저장소 생성</div>
     </div>
   </div>
-
+ 
 </div>
-
+ 
 </body>
 </html>
+ 
